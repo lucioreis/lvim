@@ -46,17 +46,17 @@ function M.config()
       ---@usage Mappings are fully customizable. Many familiar mapping patterns are setup as defaults.
       mappings = {
         i = {
-          ["<C-n>"] = actions.move_selection_next,
-          ["<C-p>"] = actions.move_selection_previous,
+          ["<C-j>"] = actions.move_selection_next,
+          ["<C-k>"] = actions.move_selection_previous,
           ["<C-c>"] = actions.close,
-          ["<C-j>"] = actions.cycle_history_next,
-          ["<C-k>"] = actions.cycle_history_prev,
+          ["<C-n>"] = actions.cycle_history_next,
+          ["<C-p>"] = actions.cycle_history_prev,
           ["<C-q>"] = actions.smart_send_to_qflist + actions.open_qflist,
           ["<CR>"] = actions.select_default,
         },
         n = {
-          ["<C-n>"] = actions.move_selection_next,
-          ["<C-p>"] = actions.move_selection_previous,
+          ["<C-j>"] = actions.move_selection_next,
+          ["<C-k>"] = actions.move_selection_previous,
           ["<C-q>"] = actions.smart_send_to_qflist + actions.open_qflist,
         },
       },
@@ -77,6 +77,7 @@ function M.config()
         only_sort_text = true,
       },
       grep_string = {
+        initial_mode = "normal",
         only_sort_text = true,
       },
       buffers = {
@@ -107,9 +108,20 @@ function M.config()
         case_mode = "smart_case", -- or "ignore_case" or "respect_case"
       },
       ["ui-select"] = {
-        initial_mode = "normal",
+        initial_mode = "insert",
         case_mode = "ignore_case",
-        theme = "cursor"
+        theme = "cursor",
+        specific_opts = { codeactions = true },
+        mappings = {
+          n = {
+            ["<C-j>"] = actions.move_selection_next,
+            ["<C-k>"] = actions.move_selection_previous,
+          },
+          i = {
+            ["<C-j>"] = actions.move_selection_next,
+            ["<C-k>"] = actions.move_selection_previous,
+          },
+        }
       },
     },
   }
@@ -141,11 +153,9 @@ function M.setup()
       require("telescope").load_extension "projects"
     end)
   end
-  if lvim.builtin.noice.active then
-    pcall(function()
-      require("telescope").load_extension "ui-select"
-    end)
-  end
+  pcall(function()
+    require("telescope").load_extension "ui-select"
+  end)
 
   if lvim.builtin.telescope.on_config_done then
     lvim.builtin.telescope.on_config_done(telescope)
