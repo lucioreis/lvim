@@ -83,6 +83,15 @@ M.banner_alt_2 = {
   "⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿",
 }
 
+M.banner_alt_3 = {
+  " ██╗      ███████╗  ██████╗  ██╗   ██╗ ██╗ ███╗   ███╗",
+  " ██║      ██╔════╝ ██╔═══██╗ ██║   ██║ ██║ ████╗ ████║",
+  " ██║      █████╗   ██║   ██║ ██║   ██║ ██║ ██╔████╔██║",
+  " ██║      ██╔══╝   ██║   ██║ ╚██╗ ██╔╝ ██║ ██║╚██╔╝██║",
+  " ███████╗ ███████╗ ╚██████╔╝  ╚████╔╝  ██║ ██║ ╚═╝ ██║",
+  " ╚══════╝ ╚══════╝  ╚═════╝    ╚═══╝   ╚═╝ ╚═╝     ╚═╝",
+}
+
 function M.get_sections()
   local header = {
     type = "text",
@@ -93,7 +102,7 @@ function M.get_sections()
       end, vim.api.nvim_list_wins())
 
       if vim.api.nvim_win_get_height(alpha_wins[#alpha_wins]) < 36 then
-        return M.banner_small
+        return M.banner_alt_3 --M.banner_small
       end
       return banner
     end,
@@ -110,7 +119,7 @@ function M.get_sections()
     type = "text",
     val = text.align_center({ width = 0 }, {
       "",
-      "lunarvim.org",
+      "Based on lunarvim.org",
       lvim_version,
     }, 0.5),
     opts = {
@@ -137,6 +146,7 @@ function M.get_sections()
         lvim.icons.ui.Gear .. "  Configuration",
         "<CMD>edit " .. require("lvim.config"):get_user_config_path() .. " <CR>",
       },
+      { "q", lvim.icons.ui.CloseCircle .. "  Quit Leovim", ":qa<CR>" }
     },
   }
   return {
