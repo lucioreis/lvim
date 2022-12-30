@@ -162,7 +162,7 @@ local function options()
     default_component_configs = {
       container = {
         enable_character_fade = true,
-        width = "90%",
+        width = "100%",
         right_padding = 0,
       },
       --diagnostics = {
@@ -180,7 +180,7 @@ local function options()
       --  },
       --},
       indent = {
-        indent_size = 1,
+        indent_size = 2,
         padding = 1,
         -- indent guides
         with_markers = true,

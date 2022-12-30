@@ -22,15 +22,16 @@ M.config = function()
         inc_rename = true, -- enables an input dialog for inc-rename.nvim
         lsp_doc_border = true, -- add a border to hover docs and signature help
       },
+      throttle = 1000 / 60,
       views = {
         cmdline_popup = {
           position = {
             row = 5,
-            col = "50%",
+            col = "10%",
           },
           size = {
             width = 60,
-            height = "auto",
+            height = 20,
           },
           border = {
             style = "single",

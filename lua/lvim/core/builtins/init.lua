@@ -34,8 +34,9 @@ local builtins = {
   "lvim.core.trouble",
   "lvim.core.undotree",
   "lvim.core.harpoon",
-  "lvim.core.diffview"
-
+  "lvim.core.diffview",
+  "lvim.core.colorizer",
+  "lvim.core.catppuccin",
 }
 
 function M.config(config)

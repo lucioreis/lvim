@@ -409,6 +409,17 @@ local core_plugins = {
       "nvim-tree/nvim-web-devicons", -- not strictly required, but recommended
       "MunifTanjim/nui.nvim",
     }
+  },
+  {
+    "NvChad/nvim-colorizer.lua",
+    config = function() require("lvim.core.colorizer").setup() end,
+    disable = not lvim.builtin.colorizer.active,
+  },
+  {
+    "catppuccin/nvim",
+    config = function() require("lvim.core.catppuccin").setup() end,
+    as = "catppuccin",
+    disable = not lvim.builtin.catppuccin.acitve
   }
 
 }
