@@ -6,8 +6,8 @@ local function options()
     -- The name used here must be the same name you would use in a require() call.
     sources = {
       "filesystem",
-      "buffers",
       "git_status",
+      "buffers",
     },
     add_blank_line_at_top = false, -- Add a blank line at the top of the tree.
     close_if_last_window = false, -- Close Neo-tree if it is the last window left in the tab
@@ -44,8 +44,8 @@ local function options()
     use_default_mappings = true,
     -- source_selector provides clickable tabs to switch between sources.
     source_selector = {
-      winbar = false, -- toggle to show selector on winbar
-      statusline = false, -- toggle to show selector on statusline
+      winbar = true, -- toggle to show selector on winbar
+      statusline = true, -- toggle to show selector on statusline
       show_scrolled_off_parent_node = false, -- this will replace the tabs with the parent path
       -- of the top visible node when scrolled down.
       tab_labels = { -- falls back to source_name if nil
@@ -210,6 +210,7 @@ local function options()
         trailing_slash = false,
         use_git_status_colors = true,
         highlight = "NeoTreeFileName",
+        left_padding = 1,
       },
       git_status = {
         symbols = {
@@ -508,11 +509,11 @@ end
 M.setup = function()
   vim.cmd([[ let g:neo_tree_remove_legacy_commands = 1 ]])
   vim.fn.sign_define("DiagnosticSignError",
-    { text = " ", texthl = "DiagnosticSignError" })
+    { text = "", texthl = "DiagnosticSignError" })
   vim.fn.sign_define("DiagnosticSignWarn",
-    { text = " ", texthl = "DiagnosticSignWarn" })
+    { text = "", texthl = "DiagnosticSignWarn" })
   vim.fn.sign_define("DiagnosticSignInfo",
-    { text = " ", texthl = "DiagnosticSignInfo" })
+    { text = "", texthl = "DiagnosticSignInfo" })
   vim.fn.sign_define("DiagnosticSignHint",
     { text = "", texthl = "DiagnosticSignHint" })
 

@@ -4,9 +4,7 @@ local core_plugins = {
   { "wbthomason/packer.nvim" },
   { "neovim/nvim-lspconfig" },
   { "tamago324/nlsp-settings.nvim" },
-  {
-    "jose-elias-alvarez/null-ls.nvim",
-  },
+  { "jose-elias-alvarez/null-ls.nvim" },
   { "williamboman/mason-lspconfig.nvim" },
   {
     "williamboman/mason.nvim",

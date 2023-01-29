@@ -8,7 +8,7 @@ M.config = function()
         light = "latte",
         dark = "mocha",
       },
-      transparent_background = false,
+      transparent_background = true,
       term_colors = false,
       dim_inactive = {
         enabled = false,
@@ -34,12 +34,17 @@ M.config = function()
       color_overrides = {},
       custom_highlights = {},
       integrations = {
-        cmp = true,
-        gitsigns = true,
-        nvimtree = true,
+        cmp       = true,
+        gitsigns  = true,
+        nvimtree  = false,
+        neotree   = true,
         telescope = true,
-        notify = false,
-        mini = false,
+        notify    = false,
+        mini      = false,
+        hop       = true,
+        mason     = true,
+        noice     = true,
+        which_key = true,
         -- For more plugins integrations please scroll down (https://github.com/catppuccin/nvim#integrations)
       },
     }
